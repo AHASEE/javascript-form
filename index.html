@@ -1,0 +1,137 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container bg-success">
+        <h1 class=" text-center p-3"> School Admission Form</h1>
+        <form class="row g-3">
+            <div class="col-md-6">
+              <label for="inputFirst" class="form-label">First Name</label>
+              <input type="text" class="form-control" id="firstName" placeholder="First Name">
+            </div>
+            <div class="col-md-6">
+              <label for="inputLastName" class="form-label">Last Name</label>
+              <input type="text" class="form-control" id="lastName" placeholder="Lastname">
+            </div>
+            <div class="col-md-6">
+                <label for="inputparents" class="form-label">Parents Name</label>
+                <input type="text" class="form-control" id="parentsname" placeholder="Parents Name">
+            </div>
+            <div class="col-md-6">
+                <label for="dob" class="form-label">DOB</label>
+                <!-- Corrected the input type to 'date' -->
+                <input type="date" class="form-control" id="inputdob" placeholder="MM/DD/YY">
+            </div>
+            <div class="col-12">
+              <label for="inputAddress" class="form-label">Address</label>
+              <input type="text" class="form-control" id="Address" placeholder="Address">
+            </div>
+            <div class="col-12">
+              <label for="inputAddress2" class="form-label">Address 2</label>
+              <input type="text" class="form-control" id="Address2" placeholder="Apartment, studio, or floor">
+            </div>
+            <div class="col-md-6">
+              <label for="inputCity" class="form-label">City</label>
+              <input type="text" class="form-control" id="City" placeholder="city">
+            </div>
+            <div class="col-md-4">
+              <label for="inputState" class="form-label">State</label>
+              <select id="inputState" class="form-select" placeholder="state">
+                <option selected>Choose...</option>
+                <option>Karachi</option>
+                <option>Lahore</option>
+                <option>Islamabad</option>
+              </select>
+            </div>
+            <div class="col-md-2">
+              <label for="inputZip" class="form-label">Zip</label>
+              <input type="number" class="form-control" id="inputZip" placeholder="Zip">
+            </div>
+            <div class="col-md-4">
+                <label for="inputPhone" class="form-label">Phone Number</label>
+                <input type="number" class="form-control" id="inputPhone" placeholder="Phone Number">
+            </div>
+            <!-- Submit button inside the form -->
+            <div class="col-12">
+              <button type="button" class="btn btn-danger" onclick="insertvalue()">Submit</button>
+            </div>
+          </form>
+          <div class="mt-3" id="formDataDisplay"></div>
+
+    </div>  
+    <script>
+      // Arrays to store form data
+      var firstNamearrys = [];
+      var lastNamearrys = [];
+      var parentsnamearrys = [];
+      var inputdobarrys = [];
+      var AddressArrys = [];
+      var Address2Arrys = [];
+      var CityArrys = [];
+      var statearrys = [];
+      var inputZipArrys = [];
+      var inpuPhoneArrys = [];
+  
+    function insertvalue() {
+        // Get the values from the form inputs
+        var firstNamevalue = document.getElementById("firstName").value;
+        var lastNamevalue = document.getElementById("lastName").value;
+        var parentsnamevalue = document.getElementById("parentsname").value;
+        var inputdobvalue = document.getElementById("inputdob").value;
+        var AddressValue = document.getElementById("Address").value;
+        var address2value = document.getElementById("Address2").value;
+        var cityvalue = document.getElementById("City").value;
+        var statevalue = document.getElementById("inputState").value;
+        var zipvalue = document.getElementById("inputZip").value;
+        var phonevalue = document.getElementById("inputPhone").value;
+
+        // Push the values into respective arrays
+        firstNamearrys.push(firstNamevalue);
+        lastNamearrys.push(lastNamevalue);
+        parentsnamearrys.push(parentsnamevalue);
+        inputdobarrys.push(inputdobvalue);
+        AddressArrys.push(AddressValue);
+        Address2Arrys.push(address2value);
+        CityArrys.push(cityvalue);
+        statearrys.push(statevalue);
+        inputZipArrys.push(zipvalue);
+        inpuPhoneArrys.push(phonevalue);
+
+        // Log the arrays to the console
+        console.log("First Name Array:", firstNamearrys);
+        console.log("Last Name Array:", lastNamearrys);
+        console.log("Parents Name Array:", parentsnamearrys);
+        console.log("DOB Array:", inputdobarrys);
+        console.log("Address Array:", AddressArrys);
+        console.log("Address2 Array:", Address2Arrys);
+        console.log("City Array:", CityArrys);
+        console.log("State Array:", statearrys);
+        console.log("Zip Array:", inputZipArrys);
+        console.log("Phone Number Array:", inpuPhoneArrys);
+
+        // Display form data
+        var formDataDisplay = document.getElementById("formDataDisplay");
+        formDataDisplay.innerHTML = `
+          <h3>Form Data</h3>
+          <p><strong>First Name:</strong> ${firstNamevalue}</p>
+          <p><strong>Last Name:</strong> ${lastNamevalue}</p>
+          <p><strong>Parents Name:</strong> ${parentsnamevalue}</p>
+          <p><strong>Date of Birth:</strong> ${inputdobvalue}</p>
+          <p><strong>Address:</strong> ${AddressValue}</p>
+          <p><strong>Address 2:</strong> ${address2value}</p>
+          <p><strong>City:</strong> ${cityvalue}</p>
+          <p><strong>State:</strong> ${statevalue}</p>
+          <p><strong>Zip:</strong> ${zipvalue}</p>
+          <p><strong>Phone Number:</strong> ${phonevalue}</p>
+        `;
+    }
+    </script>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</html>
